@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Animation Blog</string>
+    <string name="title_activity_vector_animation">VectorAnimationActivity</string>
+</resources>
