@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Animation Blog</string>
-    <string name="title_activity_vector_animation">VectorAnimationActivity</string>
+    <string name="title_activity_vector_animation">Vector Animation</string>
+    <string name="title_activity_view_animation">View Animation</string>
+    <string name="title_activity_property_animation">Property Animation</string>
+    <string name="title_activity_recycler_view_animation">Recycler View Animation</string>
 </resources>
