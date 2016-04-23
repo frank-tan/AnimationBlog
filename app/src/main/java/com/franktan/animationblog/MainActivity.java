@@ -17,7 +17,26 @@ public class MainActivity extends AppCompatActivity implements EntryFragment.OnE
 
     @Override
     public void onEntryListItemClicked(ActivityEntryFactory.ActivityEntry item) {
-        Intent intent = new Intent(this,ViewAnimationActivity.class);
-        startActivity(intent);
+        Class activityClass = null;
+        switch (item.id){
+            case 1:
+                activityClass = ViewAnimationActivity.class;
+                break;
+            case 2:
+                activityClass = PropertyAnimationActivity.class;
+                break;
+            case 3:
+                activityClass = VectorAnimationActivity.class;
+                break;
+            case 4:
+                activityClass = RecyclerViewAnimationActivity.class;
+                break;
+            default:
+                break;
+        }
+        if(activityClass != null) {
+            Intent intent = new Intent(this, activityClass);
+            startActivity(intent);
+        }
     }
 }

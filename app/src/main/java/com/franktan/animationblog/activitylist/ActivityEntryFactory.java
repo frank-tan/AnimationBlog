@@ -25,17 +25,17 @@ public class ActivityEntryFactory {
     }
 
     private static ActivityEntry createActivityEntryItem(int position, String content) {
-        return new ActivityEntry(String.valueOf(position), content);
+        return new ActivityEntry(position, content);
     }
 
     /**
      * Activity Entry item representing an entry item in the list
      */
     public static class ActivityEntry {
-        public final String id;
+        public final int id;
         public final String content;
 
-        public ActivityEntry(String id, String content) {
+        public ActivityEntry(int id, String content) {
             this.id = id;
             this.content = content;
         }
