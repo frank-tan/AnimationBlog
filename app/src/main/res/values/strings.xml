@@ -4,4 +4,6 @@
     <string name="title_activity_view_animation">View Animation</string>
     <string name="title_activity_property_animation">Property Animation</string>
     <string name="title_activity_recycler_view_animation">Recycler View Animation</string>
+    <string name="path_tick">M19.6,7 L10.4,16.2 M4.8,13.4 L9,17.6</string>
+    <string name="path_cross">M17.6,6.4 L6.4,17.6 M6.4,6.4 L17.6,17.6</string>
 </resources>
