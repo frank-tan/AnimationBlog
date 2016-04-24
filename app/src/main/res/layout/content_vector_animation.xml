@@ -31,7 +31,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:tint="@android:color/holo_red_light"
-                android:src="@drawable/ic_heart"
+                android:src="@drawable/ic_heart_empty"
                 android:onClick="onLikeButtonClicked"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>

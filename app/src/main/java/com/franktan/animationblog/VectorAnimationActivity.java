@@ -12,10 +12,6 @@ import android.widget.ImageView;
 public class VectorAnimationActivity extends AppCompatActivity {
     private FloatingActionButton mFab;
     private ImageView mLikeButton;
-    private AnimatedVectorDrawable tickToCross;
-    private AnimatedVectorDrawable crossToTick;
-    private AnimatedVectorDrawable fillHeart;
-    private AnimatedVectorDrawable emptyHeart;
     private boolean isTick = true;
     private boolean like = false;
 
@@ -26,14 +22,6 @@ public class VectorAnimationActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if(Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            tickToCross = (AnimatedVectorDrawable) getDrawable(R.drawable.tick_to_cross);
-            crossToTick = (AnimatedVectorDrawable) getDrawable(R.drawable.cross_to_tick);
-
-            fillHeart = (AnimatedVectorDrawable) getDrawable(R.drawable.fill_heart);
-            emptyHeart = (AnimatedVectorDrawable) getDrawable(R.drawable.empty_heart);
-        }
-
         mFab = (FloatingActionButton) findViewById(R.id.fab);
         mLikeButton = (ImageView) findViewById(R.id.like_button);
 
@@ -41,6 +29,11 @@ public class VectorAnimationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    AnimatedVectorDrawable tickToCross;
+                    AnimatedVectorDrawable crossToTick;
+                    tickToCross = (AnimatedVectorDrawable) getDrawable(R.drawable.tick_to_cross);
+                    crossToTick = (AnimatedVectorDrawable) getDrawable(R.drawable.cross_to_tick);
+
                     AnimatedVectorDrawable animDrawable = isTick ? tickToCross: crossToTick;
                     mFab.setImageDrawable(animDrawable);
                     animDrawable.start();
@@ -57,11 +50,16 @@ public class VectorAnimationActivity extends AppCompatActivity {
 
     public void onLikeButtonClicked(View view) {
         if(Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            AnimatedVectorDrawable fillHeart;
+            AnimatedVectorDrawable emptyHeart;
+            fillHeart = (AnimatedVectorDrawable) getDrawable(R.drawable.fill_heart);
+            emptyHeart = (AnimatedVectorDrawable) getDrawable(R.drawable.empty_heart);
+
             AnimatedVectorDrawable animDrawable = like ? emptyHeart : fillHeart;
             mLikeButton.setImageDrawable(animDrawable);
             animDrawable.start();
         } else {
-            int nextDrawableId = like ? R.drawable.ic_heart : R.drawable.ic_heart_filled;
+            int nextDrawableId = like ? R.drawable.ic_heart_empty : R.drawable.ic_heart_filled;
             mLikeButton.setImageResource(nextDrawableId);
         }
         like = !like;
