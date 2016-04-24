@@ -12,9 +12,28 @@
     tools:context="com.franktan.animationblog.VectorAnimationActivity"
     tools:showIn="@layout/activity_vector_animation">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vector Animation" />
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/pic2"/>
+            <ImageView
+                android:id="@+id/like_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:tint="@android:color/holo_red_light"
+                android:src="@drawable/ic_heart"
+                android:onClick="onLikeButtonClicked"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>

@@ -7,12 +7,17 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 
 public class VectorAnimationActivity extends AppCompatActivity {
     private FloatingActionButton mFab;
+    private ImageView mLikeButton;
     private AnimatedVectorDrawable tickToCross;
     private AnimatedVectorDrawable crossToTick;
+    private AnimatedVectorDrawable fillHeart;
+    private AnimatedVectorDrawable emptyHeart;
     private boolean isTick = true;
+    private boolean like = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +29,14 @@ public class VectorAnimationActivity extends AppCompatActivity {
         if(Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             tickToCross = (AnimatedVectorDrawable) getDrawable(R.drawable.tick_to_cross);
             crossToTick = (AnimatedVectorDrawable) getDrawable(R.drawable.cross_to_tick);
+
+            fillHeart = (AnimatedVectorDrawable) getDrawable(R.drawable.fill_heart);
+            emptyHeart = (AnimatedVectorDrawable) getDrawable(R.drawable.empty_heart);
         }
 
         mFab = (FloatingActionButton) findViewById(R.id.fab);
+        mLikeButton = (ImageView) findViewById(R.id.like_button);
+
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,10 +51,16 @@ public class VectorAnimationActivity extends AppCompatActivity {
                 isTick = !isTick;
             }
         });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void onLickButtonClicked(View view) {
-
+    public void onLikeButtonClicked(View view) {
+        if(Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            AnimatedVectorDrawable animDrawable = like ? emptyHeart : fillHeart;
+            mLikeButton.setImageDrawable(animDrawable);
+            animDrawable.start();
+        }
+        like = !like;
     }
 }
