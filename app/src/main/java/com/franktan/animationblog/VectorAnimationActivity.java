@@ -29,10 +29,8 @@ public class VectorAnimationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    AnimatedVectorDrawable tickToCross;
-                    AnimatedVectorDrawable crossToTick;
-                    tickToCross = (AnimatedVectorDrawable) getDrawable(R.drawable.tick_to_cross);
-                    crossToTick = (AnimatedVectorDrawable) getDrawable(R.drawable.cross_to_tick);
+                    AnimatedVectorDrawable tickToCross = (AnimatedVectorDrawable) getDrawable(R.drawable.tick_to_cross);
+                    AnimatedVectorDrawable crossToTick = (AnimatedVectorDrawable) getDrawable(R.drawable.cross_to_tick);
 
                     AnimatedVectorDrawable animDrawable = isTick ? tickToCross: crossToTick;
                     mFab.setImageDrawable(animDrawable);
@@ -50,10 +48,8 @@ public class VectorAnimationActivity extends AppCompatActivity {
 
     public void onLikeButtonClicked(View view) {
         if(Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            AnimatedVectorDrawable fillHeart;
-            AnimatedVectorDrawable emptyHeart;
-            fillHeart = (AnimatedVectorDrawable) getDrawable(R.drawable.fill_heart);
-            emptyHeart = (AnimatedVectorDrawable) getDrawable(R.drawable.empty_heart);
+            AnimatedVectorDrawable fillHeart = (AnimatedVectorDrawable) getDrawable(R.drawable.fill_heart);
+            AnimatedVectorDrawable emptyHeart = (AnimatedVectorDrawable) getDrawable(R.drawable.empty_heart);
 
             AnimatedVectorDrawable animDrawable = like ? emptyHeart : fillHeart;
             mLikeButton.setImageDrawable(animDrawable);
