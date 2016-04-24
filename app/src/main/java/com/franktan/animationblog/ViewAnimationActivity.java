@@ -1,5 +1,6 @@
 package com.franktan.animationblog;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,16 +13,18 @@ import android.widget.ImageView;
 
 public class ViewAnimationActivity extends AppCompatActivity {
     private ImageView mImageView;
+    private View mFramesView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_animation);
         mImageView = (ImageView) findViewById(R.id.image);
+        mFramesView = findViewById(R.id.frames_view);
     }
 
     public void onRotateButtonClicked(View view) {
-        // View Animation using Java code
+        // Tween Animation using Java code
         Animation rotateAnimation = new RotateAnimation(
                 0,
                 360,
@@ -35,7 +38,7 @@ public class ViewAnimationActivity extends AppCompatActivity {
     }
 
     public void onZoomButtonClicked(View view) {
-        // View Animation using Java code
+        // Tween Animation using Java code
         Animation scaleDownAnimation = new ScaleAnimation(
                 (float) 1.0,
                 0,
@@ -53,20 +56,27 @@ public class ViewAnimationActivity extends AppCompatActivity {
     }
 
     public void onFadeButtonClicked(View view) {
-        // View Animation using XML
+        // Tween Animation using XML
         Animation fadeAnimation = AnimationUtils.loadAnimation(this, R.anim.fadeout_fadein);
         mImageView.startAnimation(fadeAnimation);
     }
 
     public void onShakeButtonClicked(View view) {
-        // View Animation using XML
+        // Tween Animation using XML
         Animation fadeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake);
         mImageView.startAnimation(fadeAnimation);
     }
 
     public void onAnimSetButtonClicked(View view) {
-        // View Animation Set using XML
+        // Tween Animation Set using XML
         Animation animationSet = AnimationUtils.loadAnimation(this, R.anim.disappear);
         mImageView.startAnimation(animationSet);
+    }
+
+    public void onFramesButtonClicked(View view) {
+        // Frame Animation
+        AnimationDrawable animationDrawable = (AnimationDrawable) mFramesView.getBackground();
+        animationDrawable.stop();
+        animationDrawable.start();
     }
 }
