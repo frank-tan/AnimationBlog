@@ -29,9 +29,9 @@ public class ViewAnimationActivity extends AppCompatActivity {
                 0,
                 360,
                 Animation.RELATIVE_TO_SELF,
-                (float) 0.5,
+                0.5f,
                 Animation.RELATIVE_TO_SELF,
-                (float) 0.5);
+                0.5f);
         rotateAnimation.setDuration(500);
         rotateAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
         mImageView.startAnimation(rotateAnimation);
@@ -40,14 +40,14 @@ public class ViewAnimationActivity extends AppCompatActivity {
     public void onZoomButtonClicked(View view) {
         // Tween Animation using Java code
         Animation scaleDownAnimation = new ScaleAnimation(
-                (float) 1.0,
-                0,
-                (float) 1.0,
-                0,
+                1.0f,
+                0f,
+                1.0f,
+                0f,
                 Animation.RELATIVE_TO_SELF,
-                (float) 0.5,
+                0.5f,
                 Animation.RELATIVE_TO_SELF,
-                (float) 0.5);
+                0.5f);
         scaleDownAnimation.setDuration(500);
         scaleDownAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
         scaleDownAnimation.setRepeatCount(1);
