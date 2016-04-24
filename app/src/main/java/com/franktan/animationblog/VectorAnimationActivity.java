@@ -60,6 +60,9 @@ public class VectorAnimationActivity extends AppCompatActivity {
             AnimatedVectorDrawable animDrawable = like ? emptyHeart : fillHeart;
             mLikeButton.setImageDrawable(animDrawable);
             animDrawable.start();
+        } else {
+            int nextDrawableId = like ? R.drawable.ic_heart : R.drawable.ic_heart_filled;
+            mLikeButton.setImageResource(nextDrawableId);
         }
         like = !like;
     }
