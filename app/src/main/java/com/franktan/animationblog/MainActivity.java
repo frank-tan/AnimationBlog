@@ -2,7 +2,8 @@ package com.franktan.animationblog;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.franktan.animationblog.activitylist.ActivityEntryFactory;
 import com.franktan.animationblog.activitylist.EntryFragment;
